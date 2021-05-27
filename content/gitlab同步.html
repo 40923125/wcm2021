@@ -123,7 +123,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li><a href='About.html'>About</a><li class='has-children'><a href='W14.html'>W14</a><ul class='dropdown'><li><a href='分組連結.html'>分組連結</a><li><a href='gitlab同步.html'>gitlab同步</a></li></ul><li><a href='作業.html'>作業</a><li><a href='heroku.html'>heroku</a></li>
+                     <li><a href='About.html'>About</a><li class='has-children'><a href='W14.html'>W14</a><ul class='dropdown'><li><a href='分組連結.html'>分組連結</a><li><a href='Gitlab同步.html'>Gitlab同步</a></li></ul><li><a href='作業.html'>作業</a><li><a href='heroku.html'>heroku</a></li>
                       </ul>
                 </nav>
               </div>
@@ -134,7 +134,30 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">分組連結 << <a href='分組連結.html'>Previous</a> <a href='作業.html'>Next</a> >> 作業<br /><h1>gitlab同步</h1><br />分組連結 << <a href='分組連結.html'>Previous</a> <a href='作業.html'>Next</a> >> 作業</div>
+    <div id="tipue_search_content">分組連結 << <a href='分組連結.html'>Previous</a> <a href='作業.html'>Next</a> >> 作業<br /><h1>Gitlab同步</h1>
+<p>1.完成<span> </span><a href="https://gitlab.com/users/sign_up">https://gitlab.com/users/sign_up</a><span> </span>帳號申請與驗證.</p>
+<p>2.在原先 Github 倉儲中增加一個 .gitlab-ci.yml 檔案, 目的是用來產生與倉儲對應的 Gitlab Pages 網站.</p>
+<p><span>.gitlab-ci.yml 檔案內容</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">pages:
+  stage: deploy
+  script:
+  - mkdir .public
+  - cp -r * .public
+  - mv .public public
+  artifacts:
+    paths:
+    - public
+  only:
+  - main
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive</pre>
+<p><span>3.在近端的 wcm2021 倉儲中的 .git/config 設定檔案中, 新增一個名稱為 gitlab 的 remote add 連結設定.</span></p>
+<p><span>新增內容</span></p>
+<p><span><img alt="" height="63" src="./../images/螢幕擷取畫面 2021-05-27 124937.png" width="342"/></span></p>
+<p><span>4.利用命令提示字元進行同步</span></p>
+<p><span><img caption="false" height="375" src="./../images/螢幕擷取畫面 2021-05-27 125350.png" width="550"/></span></p>
+<p><span></span>於Gitlab會自行產生倉儲</p>
+<p><img caption="false" height="35" src="./../images/螢幕擷取畫面 2021-05-27 125600.png" width="700"/></p><br />分組連結 << <a href='分組連結.html'>Previous</a> <a href='作業.html'>Next</a> >> 作業</div>
         
     <!-- footer -->
       <div class="container">
